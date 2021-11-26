@@ -1,0 +1,19 @@
+version: '3'
+services:
+    bf2-docker:
+        build:
+            context: .
+        image: bf2-docker:0.0.1
+        container_name: bf2-docker
+        volumes:
+            - "/home/bf2-srv:/home/bf2/srv"
+        environment:
+            SERVER_NAME: "BF2 Server"
+        ports:
+          - "8080:80/tcp"
+          - "4711:4711/tcp"
+          - "4712:4712/tcp"
+          - "16567:16567/udp"
+          - "27901:27901/udp"
+          - "29900:29900/udp"
+        network_mode: bridge
